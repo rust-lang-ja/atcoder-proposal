@@ -1,0 +1,48 @@
+# https://github.com/dimforge/nalgebra/issues/972
+# BSD-3-Clauseで正しく、LICENSEファイルだけアップデートされていない状態らしい
+[clarify.nalgebra]
+expression = "BSD-3-Clause"
+license-files = []
+skip-files = [
+    "LICENSE",
+]
+
+[clarify.regex]
+expression = "MIT OR Apache-2.0"
+license-files = [
+    { path = "LICENSE-APACHE", hash = 0x24b54f4b },
+    { path = "LICENSE-MIT", hash = 0xb755395b },
+]
+skip-files = [
+    "src/testdata/LICENSE",
+]
+
+[clarify.regex-syntax]
+expression = "(MIT OR Apache-2.0) AND Unicode-DFS-2016"
+license-files = [
+    { path = "LICENSE-APACHE", hash = 0x24b54f4b },
+    { path = "LICENSE-MIT", hash = 0xb755395b },
+    { path = "src/unicode_tables/LICENSE-UNICODE", hash = 0xa7f28b93 },
+]
+
+[clarify.typenum]
+expression = "MIT OR Apache-2.0"
+license-files = [
+    { path = "LICENSE", hash = 0xa4618a29 },
+    { path = "LICENSE-APACHE", hash = 0x91d5a0a7 },
+    { path = "LICENSE-MIT", hash = 0xb9f15462 },
+]
+
+[clarify.unicode-ident]
+expression = "(MIT OR Apache-2.0) AND Unicode-DFS-2016"
+license-files = [
+    { path = "LICENSE-APACHE", hash = 0x24b54f4b },
+    { path = "LICENSE-MIT", hash = 0x386ca1bc },
+    { path = "LICENSE-UNICODE", hash = 0x9698cbbe },
+]
+
+[clarify.whiteread]
+expression = "LicenseRef-MIT-WITH-NonMilitaryNonSpy"
+license-files = [
+    { path = "LICENSE", hash = 0xf385eca4 },
+]

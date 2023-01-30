@@ -1,0 +1,62 @@
+targets = [
+    { triple = "x86_64-unknown-linux-gnu" },
+]
+
+[bans]
+multiple-versions = "allow"
+# クレートの中にはビルド時にcurl等でCのライブラリ(lib○○)を持って来てリンクすることがある。
+# 今回のクレートのセットにはそのようなものは含まれていない。
+# そのことを各build.rsを目視して確認した。
+allow-build-scripts = [
+    { name = "anyhow", version = "=1.0.68" }, # https://docs.rs/crate/anyhow/1.0.68/source/build.rs
+    { name = "im-rc", version = "=15.1.0" }, # https://docs.rs/crate/im-rc/15.1.0/source/build.rs
+    { name = "indexmap", version = "=1.9.2" }, # https://docs.rs/crate/indexmap/1.9.2/source/build.rs
+    { name = "libc", version = "=0.2.139" }, # https://docs.rs/crate/libc/0.2.139/source/build.rs
+    { name = "libm", version = "=0.2.6" }, # https://docs.rs/crate/libm/0.2.6/source/build.rs
+    { name = "log", version = "=0.4.17" }, # https://docs.rs/crate/log/0.4.17/source/build.rs
+    { name = "memchr", version = "=2.5.0" }, # https://docs.rs/crate/memchr/2.5.0/source/build.rs
+    { name = "num-bigint", version = "=0.4.3" }, # https://docs.rs/crate/num-bigint/0.4.3/source/build.rs
+    { name = "num-complex", version = "=0.2.4" }, # https://docs.rs/crate/num-complex/0.2.4/source/build.rs
+    { name = "num-integer", version = "=0.1.45" }, # https://docs.rs/crate/num-integer/0.1.45/source/build.rs
+    { name = "num-iter", version = "=0.1.43" }, # https://docs.rs/crate/num-iter/0.1.43/source/build.rs
+    { name = "num-rational", version = "=0.4.1" }, # https://docs.rs/crate/num-rational/0.4.1/source/build.rs
+    { name = "num-traits", version = "=0.2.15" }, # https://docs.rs/crate/num-traits/0.2.15/source/build.rs
+    { name = "paste", version = "=1.0.11" }, # https://docs.rs/crate/paste/1.0.11/source/build.rs
+    { name = "proc-macro2", version = "=1.0.50" }, # https://docs.rs/crate/proc-macro2/1.0.50/source/build.rs
+    { name = "quote", version = "=1.0.23" }, # https://docs.rs/crate/quote/1.0.23/source/build.rs
+    { name = "radium", version = "=0.7.0" }, # https://docs.rs/crate/radium/0.7.0/source/build.rs
+    { name = "serde", version = "=1.0.152" }, # https://docs.rs/crate/serde/1.0.152/source/build.rs
+    { name = "serde_derive", version = "=1.0.152" }, # https://docs.rs/crate/serde_derive/1.0.152/source/build.rs
+    { name = "syn", version = "=1.0.107" }, # https://docs.rs/crate/syn/1.0.107/source/build.rs
+    { name = "thiserror", version = "=1.0.38" }, # https://docs.rs/crate/thiserror/1.0.38/source/build.rs
+    { name = "typenum", version = "=1.16.0" }, # https://docs.rs/crate/typenum/1.16.0/source/build/main.rs
+    { name = "varisat", version = "=0.2.2" }, # https://docs.rs/crate/varisat/0.2.2/source/build.rs
+]
+
+[sources]
+allow-git = [
+    "https://github.com/rust-lang-ja/ac-library-rs.git",
+]
+
+[licenses]
+allow = [
+    "0BSD",
+    "Apache-2.0",
+    "BSD-3-Clause",
+    "CC0-1.0",
+    "MIT",
+    "MPL-2.0",
+    "Unicode-DFS-2016",
+
+    "LicenseRef-AtCoderJudgeSystem",
+    "LicenseRef-MIT-WITH-NonMilitaryNonSpy",
+]
+clarify = [
+    # https://github.com/EmbarkStudios/cargo-deny/issues/282
+    # `judge`自体もライセンスを持つことを要求してくるため、ダミーのライセンスを宣言する
+    # ac-library-rsも`package.private = true`であるため、上記リンクの方法は取れない
+    { name = "judge", expression = "LicenseRef-AtCoderJudgeSystem", license-files = [] },
+
+    # https://docs.rs/crate/whiteread/latest/source/LICENSE
+    { name = "whiteread", expression = "LicenseRef-MIT-WITH-NonMilitaryNonSpy", license-files = [{ path = "LICENSE", hash = 0xf385eca4 }] },
+]
