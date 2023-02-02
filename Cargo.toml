@@ -17,6 +17,16 @@ varisat = "=0.2.2"
 memoise = "=0.3.2"
 argio = "=0.2.0"
 bitvec = "=1.0.1"
+counter = "=0.5.7"
+hashbag = "=0.1.10"
+pathfinding = "=4.2.1"
+recur-fn = "=2.2.0"
+indexing = { version = "=0.4.1", features = ["experimental_pointer_ranges"] }
+index_vec = "=0.1.3"
+with_locals = "=0.3.0"
+amplify = { version = "=3.13.0", features = ["c_raw", "rand", "stringly_conversions"] }
+ouroboros = "=0.15.5"
+easy-ext = "=1.0.1"
 
 # 2020
 num = "=0.4.0"

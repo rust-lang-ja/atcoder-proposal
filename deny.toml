@@ -23,6 +23,8 @@ allow-build-scripts = [
     { name = "num-traits", version = "=0.2.15" }, # https://docs.rs/crate/num-traits/0.2.15/source/build.rs
     { name = "paste", version = "=1.0.11" }, # https://docs.rs/crate/paste/1.0.11/source/build.rs
     { name = "proc-macro2", version = "=1.0.50" }, # https://docs.rs/crate/proc-macro2/1.0.50/source/build.rs
+    { name = "proc-macro-error", version = "=1.0.4" }, # https://docs.rs/crate/proc-macro-error/1.0.4/source/build.rs
+    { name = "proc-macro-error-attr", version = "=1.0.4" }, # https://docs.rs/crate/proc-macro-error-attr/1.0.4/source/build.rs
     { name = "quote", version = "=1.0.23" }, # https://docs.rs/crate/quote/1.0.23/source/build.rs
     { name = "radium", version = "=0.7.0" }, # https://docs.rs/crate/radium/0.7.0/source/build.rs
     { name = "serde", version = "=1.0.152" }, # https://docs.rs/crate/serde/1.0.152/source/build.rs
@@ -42,6 +44,7 @@ allow-git = [
 allow = [
     "0BSD",
     "Apache-2.0",
+    "BSD-2-Clause",
     "BSD-3-Clause",
     "CC0-1.0",
     "MIT",
