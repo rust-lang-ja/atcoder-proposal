@@ -10,7 +10,7 @@ publish = false
 [dependencies]
 
 # 2023
-ac-library-rs = { git = "https://github.com/rust-lang-ja/ac-library-rs.git", rev = "0b92413133868643855ed120fd670fc165fc60d9" }
+ac-library-rs = { git = "https://github.com/rust-lang-ja/ac-library-rs.git", rev = "c03e2cab25a5997ed00674fee5f821e5a5433b42" }
 once_cell = "=1.17.0"
 static_assertions = "=1.1.0"
 varisat = "=0.2.2"
