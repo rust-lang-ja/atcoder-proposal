@@ -129,20 +129,54 @@ fn gen_license_urls(ArgsGenLicenseUrls {}: ArgsGenLicenseUrls) -> eyre::Result<(
                 ..
             } = packages[&(&**name, version)];
             let manifest_dir = manifest_path.parent().unwrap();
+
+            // proconioとnalgebraだけ暫定対応
+            if name == "proconio" {
+                let sha1 = read_git_sha1(manifest_dir)?;
+                return Ok((
+                    "proconio",
+                    format!("https://github.com/statiolake/proconio-rs/tree/{sha1}"),
+                ));
+            }
+            if name == "nalgebra" {
+                // clarify.tomlを参照のこと
+                return Ok((
+                    "nalgebra",
+                    format!("https://docs.rs/crate/nalgebra/{version}/source/Cargo.toml.orig"),
+                ));
+            }
+
             let url = format!("https://docs.rs/crate/{name}/{version}/source/");
             let url = if manifest_dir.join("LICENSE").exists() {
                 format!("{url}LICENSE")
             } else {
                 url
             };
-            (&**name, url)
+            Ok((&**name, url))
         })
-        .collect();
+        .collect::<eyre::Result<_>>()?;
 
     for url in reorder(urls, &root_package.manifest_path)? {
         println!("{url}");
     }
-    Ok(())
+    return Ok(());
+
+    fn read_git_sha1(manifest_dir: &Utf8Path) -> eyre::Result<String> {
+        let path = manifest_dir.join(".cargo_vcs_info.json");
+        let json = &fs_err::read_to_string(path)?;
+        let CargoVcsInfo { git: Git { sha1 } } = serde_json::from_str(json)?;
+        return Ok(sha1);
+
+        #[derive(Deserialize)]
+        struct CargoVcsInfo {
+            git: Git,
+        }
+
+        #[derive(Deserialize)]
+        struct Git {
+            sha1: String,
+        }
+    }
 }
 
 fn normal_crates_io_deps(
