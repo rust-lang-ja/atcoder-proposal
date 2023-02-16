@@ -130,7 +130,7 @@ fn gen_license_urls(ArgsGenLicenseUrls {}: ArgsGenLicenseUrls) -> eyre::Result<(
             } = packages[&(&**name, version)];
             let manifest_dir = manifest_path.parent().unwrap();
 
-            // proconioとnalgebraだけ暫定対応
+            // proconio, nalgebra, bitset-fixedだけ暫定対応
             if name == "proconio" {
                 let sha1 = read_git_sha1(manifest_dir)?;
                 return Ok((
@@ -143,6 +143,12 @@ fn gen_license_urls(ArgsGenLicenseUrls {}: ArgsGenLicenseUrls) -> eyre::Result<(
                 return Ok((
                     "nalgebra",
                     format!("https://docs.rs/crate/nalgebra/{version}/source/Cargo.toml.orig"),
+                ));
+            }
+            if name == "bitset-fixed" {
+                return Ok((
+                    "bitset-fixed",
+                    format!("https://docs.rs/crate/bitset-fixed/{version}/source/Cargo.toml.orig"),
                 ));
             }
 
