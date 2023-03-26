@@ -44,7 +44,6 @@ allow-git = [
 allow = [
     "0BSD",
     "Apache-2.0",
-    "BSD-2-Clause",
     "BSD-3-Clause",
     "CC0-1.0",
     "MIT",
@@ -52,14 +51,10 @@ allow = [
     "Unicode-DFS-2016",
 
     "LicenseRef-AtCoderJudgeSystem",
-    "LicenseRef-MIT-WITH-NonMilitaryNonSpy",
 ]
 clarify = [
     # https://github.com/EmbarkStudios/cargo-deny/issues/282
     # `judge`自体もライセンスを持つことを要求してくるため、ダミーのライセンスを宣言する
     # ac-library-rsも`package.private = true`であるため、上記リンクの方法は取れない
     { name = "judge", expression = "LicenseRef-AtCoderJudgeSystem", license-files = [] },
-
-    # https://docs.rs/crate/whiteread/latest/source/LICENSE
-    { name = "whiteread", expression = "LicenseRef-MIT-WITH-NonMilitaryNonSpy", license-files = [{ path = "LICENSE", hash = 0xf385eca4 }] },
 ]
