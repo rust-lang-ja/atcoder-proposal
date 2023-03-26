@@ -92,6 +92,30 @@ jobs:
       - name: cargo-deny (judge)
         run: cargo deny check
 
+  bottlerocket-license-scan:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Read ./rust-toolchain
+        id: read-rust-toolchain
+        run: echo "toolchain=$(cat ./rust-toolchain)" >> "$GITHUB_OUTPUT"
+        shell: bash
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: ${{ steps.read-rust-toolchain.outputs.toolchain }}
+
+      - name: Install bottlerocket-license-scan
+        run: cargo install bottlerocket-license-scan --git https://github.com/bottlerocket-os/bottlerocket-sdk
+
+      - name: bottlerocket-license-scan (judge)
+        run: |
+          git clone https://github.com/spdx/license-list-data.git /tmp/license-list-data --depth 1
+          ~/.cargo/bin/bottlerocket-license-scan --clarify ./clarify.toml --out-dir ./license_files --spdx-data /tmp/license-list-data/json/details cargo ./Cargo.toml
+          tree ./license_files
+
   build:
     runs-on: ubuntu-22.04
     steps:
