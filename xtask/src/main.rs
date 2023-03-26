@@ -1,5 +1,7 @@
 use std::collections::HashMap;
 
+use askama::Template as _;
+use build_info::build_info;
 use camino::Utf8Path;
 use cargo_metadata::{CargoOpt, Dependency, DependencyKind, MetadataCommand, Package};
 use clap::Parser as _;
@@ -51,41 +53,33 @@ fn gen_specs(ArgsGenSpecs {}: ArgsGenSpecs) -> eyre::Result<()> {
 }
 
 fn gen_command(ArgsGenCommand {}: ArgsGenCommand) -> eyre::Result<()> {
-    let md = MetadataCommand::new()
-        .features(CargoOpt::AllFeatures)
-        .exec()?;
-    let root_package = &md.root_package().ok_or_else(|| eyre!("no root package"))?;
+    let mut cargo_toml = include_str!("../../Cargo.toml").parse::<toml_edit::Document>()?;
+    cargo_toml.remove("workspace");
 
-    let source_args = normal_crates_io_deps(root_package)?
-        .map(
-            |Dependency {
-                 name,
-                 req,
-                 features,
-                 ..
-             }| {
-                let spec = format!("{name}@{req}");
-                let mut args = spec.clone();
-                if !features.is_empty() {
-                    args += " --features ";
-                    args += &features.iter().map(|f| format!("{spec}/{f}")).join(",")
-                }
-                (&**name, args)
-            },
-        )
-        .collect();
-
-    println!(r"cargo add \");
-    let mut package_args = reorder(source_args, &root_package.manifest_path)?.peekable();
-    while let Some(package_args_) = package_args.next() {
-        print!("  {package_args_}");
-        if package_args.peek().is_some() {
-            print!(r" \");
-        }
-        println!();
+    let install_command = Template {
+        rust_version: build_info().compiler.version.to_string(),
+        cargo_toml: cargo_toml.to_string().trim_start(),
+        git_rev: &build_info()
+            .version_control
+            .as_ref()
+            .unwrap()
+            .git()
+            .unwrap()
+            .commit_id,
     }
+    .render()?;
+    println!("{install_command}");
+    return Ok(());
 
-    Ok(())
+    build_info!(fn build_info);
+
+    #[derive(askama::Template)]
+    #[template(path = "./install-command.bash.txt")]
+    struct Template<'a> {
+        rust_version: String,
+        cargo_toml: &'a str,
+        git_rev: &'static str,
+    }
 }
 
 fn gen_license_urls(ArgsGenLicenseUrls {}: ArgsGenLicenseUrls) -> eyre::Result<()> {
