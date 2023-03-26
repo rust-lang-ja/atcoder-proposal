@@ -10,19 +10,19 @@ publish = false
 [dependencies]
 
 # 2023
-ac-library-rs = { git = "https://github.com/rust-lang-ja/ac-library-rs.git", rev = "c03e2cab25a5997ed00674fee5f821e5a5433b42" }
-once_cell = "=1.17.0"
+ac-library-rs = { git = "https://github.com/rust-lang-ja/ac-library-rs.git", rev = "d2d82931ab6a553d2293c3eb978152d7fa748e8d" }
+once_cell = "=1.17.1"
 static_assertions = "=1.1.0"
 varisat = "=0.2.2"
 memoise = "=0.3.2"
 argio = "=0.2.0"
 bitvec = "=1.0.1"
 counter = "=0.5.7"
-hashbag = "=0.1.10"
+hashbag = "=0.1.11"
 pathfinding = "=4.2.1"
 recur-fn = "=2.2.0"
 indexing = { version = "=0.4.1", features = ["experimental_pointer_ranges"] }
-amplify = { version = "=3.13.0", features = ["c_raw", "rand", "stringly_conversions"] }
+amplify = { version = "=3.14.2", features = ["c_raw", "rand", "stringly_conversions"] }
 easy-ext = "=1.0.1"
 
 # 2020
@@ -35,7 +35,7 @@ num-rational = "=0.4.1"
 num-traits = "=0.2.15"
 num-derive = "=0.3.3"
 ndarray = "=0.15.6"
-nalgebra = "=0.32.1"
+nalgebra = "=0.32.2"
 alga = "=0.9.3"
 libm = "=0.2.6"
 rand = { version = "=0.8.5", features = ["small_rng", "min_const_gen"] }
@@ -45,11 +45,11 @@ rand_core = "=0.6.4"
 rand_hc = "=0.3.1"
 rand_pcg = "=0.3.1"
 rand_distr = "=0.4.3"
-petgraph = "=0.6.2"
-indexmap = "=1.9.2"
-regex = "=1.7.1"
+petgraph = "=0.6.3"
+indexmap = "=1.9.3"
+regex = "=1.7.3"
 lazy_static = "=1.4.0"
-ordered-float = "=3.4.0"
+ordered-float = "=3.6.0"
 ascii = "=1.1.0"
 permutohedron = "=0.2.4"
 superslice = "=1.0.0"
