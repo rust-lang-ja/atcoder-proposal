@@ -105,7 +105,7 @@ fn gen_license_urls(ArgsGenLicenseUrls {}: ArgsGenLicenseUrls) -> eyre::Result<(
             } = packages[&(&**name, version)];
             let manifest_dir = manifest_path.parent().unwrap();
 
-            // proconio, nalgebra, bitset-fixedだけ暫定対応
+            // 一部のクレートは暫定対応
             if name == "proconio" {
                 let sha1 = read_git_sha1(manifest_dir)?;
                 return Ok((
@@ -120,16 +120,18 @@ fn gen_license_urls(ArgsGenLicenseUrls {}: ArgsGenLicenseUrls) -> eyre::Result<(
                     format!("https://docs.rs/crate/nalgebra/{version}/source/Cargo.toml.orig"),
                 ));
             }
-            if name == "bitset-fixed" {
+            if ["argio", "counter", "pathfinding", "bitset-fixed"].contains(&&**name) {
                 return Ok((
-                    "bitset-fixed",
-                    format!("https://docs.rs/crate/bitset-fixed/{version}/source/Cargo.toml.orig"),
+                    name,
+                    format!("https://docs.rs/crate/{name}/{version}/source/Cargo.toml.orig"),
                 ));
             }
 
             let url = format!("https://docs.rs/crate/{name}/{version}/source/");
             let url = if manifest_dir.join("LICENSE").exists() {
                 format!("{url}LICENSE")
+            } else if manifest_dir.join("LICENSE.txt").exists() {
+                format!("{url}LICENSE.txt")
             } else {
                 url
             };
