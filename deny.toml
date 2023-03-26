@@ -9,6 +9,7 @@ multiple-versions = "allow"
 # そのことを各build.rsを目視して確認した。
 allow-build-scripts = [
     { name = "anyhow", version = "=1.0.70" }, # https://docs.rs/crate/anyhow/1.0.70/source/build.rs
+    { name = "az", version = "1.2.1" }, # https://docs.rs/crate/az/1.2.1/source/build.rs
     { name = "im-rc", version = "=15.1.0" }, # https://docs.rs/crate/im-rc/15.1.0/source/build.rs
     { name = "indexmap", version = "=1.9.3" }, # https://docs.rs/crate/indexmap/1.9.3/source/build.rs
     { name = "libc", version = "=0.2.140" }, # https://docs.rs/crate/libc/0.2.140/source/build.rs

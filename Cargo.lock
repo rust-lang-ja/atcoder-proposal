@@ -135,6 +135,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d468802bab17cbc0cc575e9b053f41e72aa36bfa6b7f55e3529ffa43161b97fa"
 
 [[package]]
+name = "az"
+version = "1.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7b7e4c2464d97fe331d41de9d5db0def0a96f4d823b8b32a2efd503578988973"
+
+[[package]]
 name = "bitmaps"
 version = "2.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -159,6 +165,27 @@ dependencies = [
  "radium",
  "tap",
  "wyz",
+]
+
+[[package]]
+name = "bstr"
+version = "1.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c3d4260bcc2e8fc9df1eac4919a720effeb63a3f0952f5bf4944adfa18897f09"
+dependencies = [
+ "memchr",
+ "once_cell",
+ "regex-automata",
+ "serde",
+]
+
+[[package]]
+name = "btreemultimap"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6786e40464bbcf1d72084fb26dd5f96c10c41c23a6d2f118d8c82870d4aa5447"
+dependencies = [
+ "serde",
 ]
 
 [[package]]
@@ -222,6 +249,12 @@ dependencies = [
  "libc",
  "wasi",
 ]
+
+[[package]]
+name = "glidesort"
+version = "0.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f2e102e6eb644d3e0b186fc161e4460417880a0a0b87d235f2e5b8fb30f2e9e0"
 
 [[package]]
 name = "hashbag"
@@ -307,13 +340,17 @@ dependencies = [
  "amplify",
  "argio",
  "ascii",
+ "az",
  "bitset-fixed",
  "bitvec",
+ "bstr",
+ "btreemultimap",
  "counter",
  "easy-ext",
  "either",
  "fixedbitset",
  "getrandom",
+ "glidesort",
  "hashbag",
  "im-rc",
  "indexing",
@@ -324,6 +361,7 @@ dependencies = [
  "libm",
  "maplit",
  "memoise",
+ "multimap",
  "nalgebra",
  "ndarray",
  "num",
@@ -334,6 +372,7 @@ dependencies = [
  "num-iter",
  "num-rational",
  "num-traits",
+ "omniswap",
  "once_cell",
  "ordered-float 3.6.0",
  "pathfinding",
@@ -352,6 +391,7 @@ dependencies = [
  "smallvec",
  "static_assertions",
  "superslice",
+ "tap",
  "text_io",
  "varisat",
 ]
@@ -419,6 +459,15 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 1.0.109",
+]
+
+[[package]]
+name = "multimap"
+version = "0.9.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "70db9248a93dc36a36d9a47898caa007a32755c7ad140ec64eeeb50d5a730631"
+dependencies = [
+ "serde",
 ]
 
 [[package]]
@@ -558,6 +607,12 @@ dependencies = [
  "autocfg",
  "libm",
 ]
+
+[[package]]
+name = "omniswap"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8b73dba5f4428a4b36f77fb700ebba05e7f3c8bdbea4530f94427eb2009196f8"
 
 [[package]]
 name = "once_cell"
@@ -779,6 +834,12 @@ dependencies = [
  "memchr",
  "regex-syntax",
 ]
+
+[[package]]
+name = "regex-automata"
+version = "0.1.10"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6c230d73fb8d8c1b9c0b3135c5142a8acee3a0558fb8db5cf1cb65f8d7862132"
 
 [[package]]
 name = "regex-syntax"
