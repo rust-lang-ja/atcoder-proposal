@@ -1,22 +1,3 @@
-#!/usr/bin/env rust-script
-//! ```cargo
-//! [package]
-//! edition = "2021"
-//! license = "CC0-1.0"
-//!
-//! [dependencies]
-//! camino = "1.1.2"
-//! cargo_metadata = "0.15.2"
-//! clap = { version = "4.1.4", features = ["derive"] }
-//! color-eyre = "0.6.2"
-//! eyre = "0.6.8"
-//! fs-err = "2.9.0"
-//! indexmap = { version = "1.9.2", features = ["serde-1"] }
-//! itertools = "0.10.5"
-//! serde = { version = "1.0.152", features = ["derive"] }
-//! toml = "0.7.0"
-//! ```
-
 use std::collections::HashMap;
 
 use camino::Utf8Path;
