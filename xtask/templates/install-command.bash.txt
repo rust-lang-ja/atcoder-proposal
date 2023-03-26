@@ -30,7 +30,7 @@ EOF
 # 1000行以上あるので、提案者のリポジトリからダウンロード
 curl https://raw.githubusercontent.com/qryxip/proposal-for-atcoder-language-update/{{ git_rev }}/Cargo.lock -fO
 
-# transitive dependenciesライセンスについては:
+# transitive dependenciesのライセンスについては:
 # - https://github.com/qryxip/proposal-for-atcoder-language-update/blob/{{ git_rev }}/deny.toml
 # - https://github.com/qryxip/proposal-for-atcoder-language-update/blob/{{ git_rev }}/clarify.toml
 # - https://github.com/qryxip/proposal-for-atcoder-language-update/actions
