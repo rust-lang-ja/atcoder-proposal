@@ -1,6 +1,9 @@
 [workspace]
 exclude = ["./xtask"]
 
+[profile.release]
+lto = true # コンパイル時間が著しく長くなってしまう場合は無し
+
 [package]
 name = "judge"
 version = "0.0.0"
