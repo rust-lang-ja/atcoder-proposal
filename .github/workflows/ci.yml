@@ -68,6 +68,36 @@ jobs:
       - name: Clippy (xtask)
         run: cargo clippy --manifest-path ./xtask/Cargo.toml
 
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { target: x86_64-pc-windows-msvc, os: windows-2019 }
+          - { target: x86_64-pc-windows-msvc, os: windows-2022 }
+          - { target: x86_64-apple-darwin, os: macos-11 }
+          - { target: x86_64-apple-darwin, os: macos-12 }
+          - { target: x86_64-unknown-linux-gnu, os: ubuntu-20.04 }
+          - { target: x86_64-unknown-linux-gnu, os: ubuntu-22.04 }
+    name: test (${{ matrix.target }})
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Read ./rust-toolchain
+        id: read-rust-toolchain
+        run: echo "toolchain=$(cat ./rust-toolchain)" >> "$GITHUB_OUTPUT"
+        shell: bash
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: ${{ steps.read-rust-toolchain.outputs.toolchain }}
+          targets: ${{ matrix.target }}
+
+      - name: Test (judge)
+        run: cargo test --target ${{ matrix.target }}
+
   cargo-deny:
     runs-on: ubuntu-22.04
     steps:
