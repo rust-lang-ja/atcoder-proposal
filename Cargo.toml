@@ -34,6 +34,7 @@ az = "=1.2.1"
 glidesort = "=0.1.2"
 tap = "=1.0.1"
 omniswap = "=0.1.0"
+multiversion = "=0.7.1"
 
 # 2020
 num = "=0.4.0"
