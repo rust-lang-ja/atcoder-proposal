@@ -19,7 +19,6 @@ mkdir ./.cargo ./src
 cat > ./.cargo/config.toml << EOF
 [build]
 rustflags = [
-    "-Ctarget-cpu=native",
     "--cfg", "atcoder",
 ]
 EOF
