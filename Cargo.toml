@@ -26,6 +26,8 @@ pathfinding = "=4.2.1"
 recur-fn = "=2.2.0"
 indexing = { version = "=0.4.1", features = ["experimental_pointer_ranges"] }
 amplify = { version = "=3.14.2", features = ["c_raw", "rand", "stringly_conversions"] }
+amplify_derive = "=2.11.3"
+amplify_num = { version = "=0.4.1", features = ["std"] }
 easy-ext = "=1.0.1"
 multimap = "=0.9.0"
 btreemultimap = "=0.1.1"

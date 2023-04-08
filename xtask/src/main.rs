@@ -106,6 +106,13 @@ fn gen_license_urls(ArgsGenLicenseUrls {}: ArgsGenLicenseUrls) -> eyre::Result<(
             let manifest_dir = manifest_path.parent().unwrap();
 
             // 一部のクレートは暫定対応
+            if ["amplify_derive", "amplify_num"].contains(&&**name) {
+                let sha1 = read_git_sha1(manifest_dir)?;
+                return Ok((
+                    &**name,
+                    format!("https://github.com/rust-amplify/rust-amplify/blob/{sha1}/LICENSE"),
+                ));
+            }
             if name == "proconio" {
                 let sha1 = read_git_sha1(manifest_dir)?;
                 return Ok((
