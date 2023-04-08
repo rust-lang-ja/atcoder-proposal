@@ -5,7 +5,7 @@ exclude = ["./xtask"]
 lto = true # コンパイル時間が著しく長くなってしまう場合は無し
 
 [package]
-name = "judge"
+name = "main"
 version = "0.0.0"
 edition = "2021"
 publish = false

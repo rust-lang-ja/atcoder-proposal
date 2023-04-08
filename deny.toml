@@ -56,7 +56,7 @@ allow = [
 ]
 clarify = [
     # https://github.com/EmbarkStudios/cargo-deny/issues/282
-    # `judge`自体もライセンスを持つことを要求してくるため、ダミーのライセンスを宣言する
+    # `main`自体もライセンスを持つことを要求してくるため、ダミーのライセンスを宣言する
     # ac-library-rsも`package.private = true`であるため、上記リンクの方法は取れない
-    { name = "judge", expression = "LicenseRef-AtCoderJudgeSystem", license-files = [] },
+    { name = "main", expression = "LicenseRef-AtCoderJudgeSystem", license-files = [] },
 ]
