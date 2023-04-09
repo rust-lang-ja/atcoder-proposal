@@ -5,7 +5,8 @@ version = 3
 [[package]]
 name = "ac-library-rs"
 version = "0.1.0"
-source = "git+https://github.com/rust-lang-ja/ac-library-rs.git?rev=44b380565a2e80e33551cd016b998235565421fd#44b380565a2e80e33551cd016b998235565421fd"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5fe63352634c419190cb6bbc48cfa7173a98f5dfcd2552cd21988624b4c4e9ec"
 
 [[package]]
 name = "aho-corasick"
