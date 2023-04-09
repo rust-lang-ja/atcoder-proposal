@@ -13,7 +13,7 @@ publish = false
 [dependencies]
 
 # 2023
-ac-library-rs = { git = "https://github.com/rust-lang-ja/ac-library-rs.git", rev = "d2d82931ab6a553d2293c3eb978152d7fa748e8d" }
+ac-library-rs = { git = "https://github.com/rust-lang-ja/ac-library-rs.git", rev = "44b380565a2e80e33551cd016b998235565421fd" }
 once_cell = "=1.17.1"
 static_assertions = "=1.1.0"
 varisat = "=0.2.2"
@@ -52,7 +52,7 @@ nalgebra = "=0.32.2"
 alga = "=0.9.3"
 libm = "=0.2.6"
 rand = { version = "=0.8.5", features = ["small_rng", "min_const_gen"] }
-getrandom = "=0.2.8"
+getrandom = "=0.2.9"
 rand_chacha = "=0.3.1"
 rand_core = "=0.6.4"
 rand_hc = "=0.3.1"
