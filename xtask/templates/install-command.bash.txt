@@ -38,3 +38,4 @@ curl https://raw.githubusercontent.com/qryxip/proposal-for-atcoder-language-upda
 echo 'fn main() {}' > ./src/main.rs
 
 cargo build -vv --release
+rm target/release/main
