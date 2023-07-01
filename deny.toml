@@ -12,7 +12,7 @@ allow-build-scripts = [
     { name = "az", version = "=1.2.1" }, # https://docs.rs/crate/az/1.2.1/source/build.rs
     { name = "im-rc", version = "=15.1.0" }, # https://docs.rs/crate/im-rc/15.1.0/source/build.rs
     { name = "indexmap", version = "=1.9.3" }, # https://docs.rs/crate/indexmap/1.9.3/source/build.rs
-    { name = "libc", version = "=0.2.146" }, # https://docs.rs/crate/libc/0.2.146/source/build.rs
+    { name = "libc", version = "=0.2.147" }, # https://docs.rs/crate/libc/0.2.147/source/build.rs
     { name = "libm", version = "=0.2.7" }, # https://docs.rs/crate/libm/0.2.7/source/build.rs
     { name = "log", version = "=0.4.17" }, # https://docs.rs/crate/log/0.4.17/source/build.rs
     { name = "matrixmultiply", version = "=0.3.7" }, # https://docs.rs/crate/matrixmultiply/0.3.7/source/build.rs
@@ -24,10 +24,10 @@ allow-build-scripts = [
     { name = "num-rational", version = "=0.4.1" }, # https://docs.rs/crate/num-rational/0.4.1/source/build.rs
     { name = "num-traits", version = "=0.2.15" }, # https://docs.rs/crate/num-traits/0.2.15/source/build.rs
     { name = "paste", version = "=1.0.12" }, # https://docs.rs/crate/paste/1.0.12/source/build.rs
-    { name = "proc-macro2", version = "=1.0.60" }, # https://docs.rs/crate/proc-macro2/1.0.60/source/build.rs
+    { name = "proc-macro2", version = "=1.0.63" }, # https://docs.rs/crate/proc-macro2/1.0.63/source/build.rs
     { name = "proc-macro-error", version = "=1.0.4" }, # https://docs.rs/crate/proc-macro-error/1.0.4/source/build.rs
     { name = "proc-macro-error-attr", version = "=1.0.4" }, # https://docs.rs/crate/proc-macro-error-attr/1.0.4/source/build.rs
-    { name = "quote", version = "=1.0.28" }, # https://docs.rs/crate/quote/1.0.28/source/build.rs
+    { name = "quote", version = "=1.0.29" }, # https://docs.rs/crate/quote/1.0.29/source/build.rs
     { name = "radium", version = "=0.7.0" }, # https://docs.rs/crate/radium/0.7.0/source/build.rs
     { name = "serde", version = "=1.0.164" }, # https://docs.rs/crate/serde/1.0.164/source/build.rs
     { name = "serde_derive", version = "=1.0.159" }, # https://docs.rs/crate/serde_derive/1.0.159/source/build.rs
