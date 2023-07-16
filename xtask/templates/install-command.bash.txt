@@ -35,7 +35,7 @@ curl https://raw.githubusercontent.com/rust-lang-ja/atcoder-proposal/{{ git_rev 
 # transitive dependenciesのライセンスについては:
 # - https://github.com/rust-lang-ja/atcoder-proposal/blob/{{ git_rev }}/deny.toml
 # - https://github.com/rust-lang-ja/atcoder-proposal/blob/{{ git_rev }}/clarify.toml
-# - https://github.com/rust-lang-ja/atcoder-proposal/actions
+# - https://github.com/rust-lang-ja/atcoder-proposal/actions/workflows/licenses.yml
 
 echo 'fn main() {}' > ./src/main.rs
 

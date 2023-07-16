@@ -1,0 +1,46 @@
+name: Rust Lint
+
+on:
+  push:
+
+jobs:
+  rustfmt:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Read ./rust-toolchain
+        id: read-rust-toolchain
+        run: echo "toolchain=$(cat ./rust-toolchain)" >> "$GITHUB_OUTPUT"
+        shell: bash
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: ${{ steps.read-rust-toolchain.outputs.toolchain }}
+          components: rustfmt
+
+      - name: Rustfmt (main)
+        run: cargo fmt --all -- --check
+
+      - name: Rustfmt (xtask)
+        run: cargo fmt --all --manifest-path ./xtask/Cargo.toml -- --check
+
+  clippy:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Read ./rust-toolchain
+        id: read-rust-toolchain
+        run: echo "toolchain=$(cat ./rust-toolchain)" >> "$GITHUB_OUTPUT"
+        shell: bash
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: ${{ steps.read-rust-toolchain.outputs.toolchain }}
+          components: clippy
+
+      - name: Clippy (xtask)
+        run: cargo clippy --manifest-path ./xtask/Cargo.toml

@@ -1,0 +1,12 @@
+name: typos
+
+on:
+  push:
+
+jobs:
+  typos:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: crate-ci/typos@master
