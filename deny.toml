@@ -8,7 +8,7 @@ multiple-versions = "allow"
 # 今回のクレートのセットにはそのようなものは含まれていない。
 # そのことを各build.rsを目視して確認した。
 allow-build-scripts = [
-    { name = "anyhow", version = "=1.0.71" }, # https://docs.rs/crate/anyhow/1.0.71/source/build.rs
+    { name = "anyhow", version = "=1.0.72" }, # https://docs.rs/crate/anyhow/1.0.72/source/build.rs
     { name = "az", version = "=1.2.1" }, # https://docs.rs/crate/az/1.2.1/source/build.rs
     { name = "im-rc", version = "=15.1.0" }, # https://docs.rs/crate/im-rc/15.1.0/source/build.rs
     { name = "indexmap", version = "=1.9.3" }, # https://docs.rs/crate/indexmap/1.9.3/source/build.rs
@@ -23,17 +23,17 @@ allow-build-scripts = [
     { name = "num-iter", version = "=0.1.43" }, # https://docs.rs/crate/num-iter/0.1.43/source/build.rs
     { name = "num-rational", version = "=0.4.1" }, # https://docs.rs/crate/num-rational/0.4.1/source/build.rs
     { name = "num-traits", version = "=0.2.15" }, # https://docs.rs/crate/num-traits/0.2.15/source/build.rs
-    { name = "paste", version = "=1.0.12" }, # https://docs.rs/crate/paste/1.0.12/source/build.rs
-    { name = "proc-macro2", version = "=1.0.63" }, # https://docs.rs/crate/proc-macro2/1.0.63/source/build.rs
+    { name = "paste", version = "=1.0.14" }, # https://docs.rs/crate/paste/1.0.14/source/build.rs
+    { name = "proc-macro2", version = "=1.0.65" }, # https://docs.rs/crate/proc-macro2/1.0.65/source/build.rs
     { name = "proc-macro-error", version = "=1.0.4" }, # https://docs.rs/crate/proc-macro-error/1.0.4/source/build.rs
     { name = "proc-macro-error-attr", version = "=1.0.4" }, # https://docs.rs/crate/proc-macro-error-attr/1.0.4/source/build.rs
-    { name = "quote", version = "=1.0.29" }, # https://docs.rs/crate/quote/1.0.29/source/build.rs
+    { name = "quote", version = "=1.0.30" }, # https://docs.rs/crate/quote/1.0.30/source/build.rs
     { name = "radium", version = "=0.7.0" }, # https://docs.rs/crate/radium/0.7.0/source/build.rs
-    { name = "serde", version = "=1.0.164" }, # https://docs.rs/crate/serde/1.0.164/source/build.rs
+    { name = "serde", version = "=1.0.171" }, # https://docs.rs/crate/serde/1.0.171/source/build.rs
     { name = "serde_derive", version = "=1.0.159" }, # https://docs.rs/crate/serde_derive/1.0.159/source/build.rs
     { name = "syn", version = "=1.0.109" }, # https://docs.rs/crate/syn/1.0.109/source/build.rs
     { name = "target-features", version = "=0.1.4" }, # https://docs.rs/crate/target-features/0.1.4/source/build.rs
-    { name = "thiserror", version = "=1.0.40" }, # https://docs.rs/crate/thiserror/1.0.40/source/build.rs
+    { name = "thiserror", version = "=1.0.43" }, # https://docs.rs/crate/thiserror/1.0.43/source/build.rs
     { name = "typenum", version = "=1.16.0" }, # https://docs.rs/crate/typenum/1.16.0/source/build/main.rs
     { name = "varisat", version = "=0.2.2" }, # https://docs.rs/crate/varisat/0.2.2/source/build.rs
 ]
