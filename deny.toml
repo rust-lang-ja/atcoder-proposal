@@ -38,10 +38,6 @@ allow-build-scripts = [
     { name = "varisat", version = "=0.2.2" }, # https://docs.rs/crate/varisat/0.2.2/source/build.rs
 ]
 
-[sources]
-allow-git = [
-]
-
 [licenses]
 allow = [
     "0BSD",
@@ -51,12 +47,4 @@ allow = [
     "MIT",
     "MPL-2.0",
     "Unicode-DFS-2016",
-
-    "LicenseRef-AtCoderJudgeSystem",
-]
-clarify = [
-    # https://github.com/EmbarkStudios/cargo-deny/issues/282
-    # `main`自体もライセンスを持つことを要求してくるため、ダミーのライセンスを宣言する
-    # ac-library-rsも`package.private = true`であるため、上記リンクの方法は取れない
-    { name = "main", expression = "LicenseRef-AtCoderJudgeSystem", license-files = [] },
 ]
