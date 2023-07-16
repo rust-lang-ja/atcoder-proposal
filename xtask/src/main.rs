@@ -146,9 +146,13 @@ fn gen_license_urls(ArgsGenLicenseUrls {}: ArgsGenLicenseUrls) -> eyre::Result<(
         })
         .collect::<eyre::Result<_>>()?;
 
-    for url in reorder(urls, &root_package.manifest_path)? {
-        println!("{url}");
-    }
+    println!(
+        "{}",
+        Template {
+            crate_licenses: reorder(urls, &root_package.manifest_path)?.collect(),
+        }
+        .render()?,
+    );
     return Ok(());
 
     fn read_git_sha1(manifest_dir: &Utf8Path) -> eyre::Result<String> {
@@ -166,6 +170,12 @@ fn gen_license_urls(ArgsGenLicenseUrls {}: ArgsGenLicenseUrls) -> eyre::Result<(
         struct Git {
             sha1: String,
         }
+    }
+
+    #[derive(askama::Template)]
+    #[template(path = "./license-url.txt")]
+    struct Template {
+        crate_licenses: Vec<String>,
     }
 }
 
